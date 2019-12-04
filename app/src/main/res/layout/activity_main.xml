@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5F09F7"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="322dp"
-        android:layout_height="594dp"
+        android:layout_width="303dp"
+        android:layout_height="407dp"
+        android:background="#06EED8"
         app:layout_constraintBottom_toTopOf="@+id/add_grocery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/add_grocery"
