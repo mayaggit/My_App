@@ -27,9 +27,9 @@ public class ListDAO {
    {
 //הפעולה אמורה להחזיר סטרינג
        List<NameIdPair> list=new ArrayList<NameIdPair>(){{
-           add(new NameIdPair("super", 1));
-           add(new NameIdPair("super", 1));
-           add(new NameIdPair("super", 1));
+           add(new NameIdPair("super1", 1));
+           add(new NameIdPair("super2", 1));
+           add(new NameIdPair("super3", 1));
        }};
 
        return list;

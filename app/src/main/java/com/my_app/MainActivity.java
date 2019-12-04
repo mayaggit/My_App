@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager layoutManager;
     private ListDAO listDao;
     private List<NameIdPair> groceries;
-    private MyAdapter adapter;
+    private GroceriesAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new MyAdapter(groceries);
+        adapter = new GroceriesAdapter(groceries);
         recyclerView.setAdapter(adapter);
 
     }

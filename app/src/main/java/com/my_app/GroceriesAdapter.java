@@ -1,5 +1,6 @@
 package com.my_app;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,22 +11,27 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class GroceriesAdapter extends RecyclerView.Adapter<GroceriesAdapter.MyViewHolder> {
 
     private List<NameIdPair> groceries;
 
-    public MyAdapter(List<NameIdPair> groceries) {
+    public GroceriesAdapter(List<NameIdPair> groceries) {
         this.groceries = groceries;
     }
 
     @NonNull
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public GroceriesAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v =  LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.groceries_row, parent, false);
+
+        MyViewHolder vh = new MyViewHolder(v);
+
+        return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull GroceriesAdapter.MyViewHolder holder, int position) {
         NameIdPair pair = groceries.get(position);
         holder.textGrocery.setText(pair.getName());
     }
