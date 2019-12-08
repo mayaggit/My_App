@@ -2,9 +2,9 @@ package com.my_app;
 
 public class NameIdPair {
     private  String name;
-    private  int id;
+    private  long id;
 
-    public NameIdPair(String name, int id) {
+    public NameIdPair(String name, long id) {
         this.name = name;
         this.id = id;
     }
@@ -17,7 +17,7 @@ public class NameIdPair {
         this.name = name;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

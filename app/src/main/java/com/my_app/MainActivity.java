@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private List<NameIdPair> groceries;
     private GroceriesAdapter adapter;
     private View addGrocery;
+    private String myPhoneNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,24 @@ public class MainActivity extends AppCompatActivity {
 
         addGrocery =  findViewById(R.id.add_grocery_button);
 
-        listDao = new ListDAO();
-        groceries = listDao.getGroceryNames();
+        listDao = new ListDAO(getApplicationContext());
+        groceries = listDao.getGroceryPairs();
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_grocery);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new GroceriesAdapter(groceries);
+        adapter = new GroceriesAdapter(groceries, new GroceriesAdapter.GroceryListener() {
+            @Override
+            public void onGroceryClicked(long id) {
+                Intent myIntent = new Intent(MainActivity.this, ItemsActivity.class);
+                myIntent.putExtra("grocery_id", id); //Optional parameters
+                startActivity(myIntent);
+            }
+        });
+
+
         recyclerView.setAdapter(adapter);
 
         addGrocery.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        MyApplication myApplication = (MyApplication) getApplication();
+        myPhoneNumber = myApplication.getMyPhoneNumber();
 
     }
 }

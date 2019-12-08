@@ -1,6 +1,5 @@
 package com.my_app;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,11 +17,11 @@ public class ItemsActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private View addItem;
-    private ListDAO listItem;
-    private Object item;
-    private RecyclerView ecyclerView;
+    private ListDAO listDAO;
+    private Object items;
     private ItemAdapter adapter;
     private List<Item> itemList;
+    private long id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +31,19 @@ public class ItemsActivity extends AppCompatActivity {
 
         addItem =  findViewById(R.id.add_item_button);
 
-        listItem = new ListDAO();
-        item = listItem.getItems();
+        Intent intent = getIntent();
+        id = intent.getLongExtra("grocery_id", -1);
 
-        ecyclerView = (RecyclerView) findViewById(R.id.recycler_view_grocery);
+
+        listDAO = new ListDAO(getApplicationContext());
+        items = listDAO.getItems(id);
+
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_items);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter = new ItemAdapter(itemList);
+        adapter = new ItemAdapter((List<Item>) items);
         recyclerView.setAdapter(adapter);
     }
 

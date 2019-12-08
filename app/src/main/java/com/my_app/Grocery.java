@@ -6,11 +6,15 @@ public class Grocery {
    private List<Item> items;
    private String name;
    private List<User> users;
-   private int id;
+   private long id;
 
-    public Grocery( String name, List<User> users) {
+    public Grocery( String name, List<User> users, long id) {
         this.name = name;
         this.users = users;
+
+//        this.id = System.currentTimeMillis();
+        this.id = id;
+
     }
 
     public List<Item> getItems() {
@@ -37,11 +41,11 @@ public class Grocery {
         this.users = users;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 }

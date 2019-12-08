@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
+
 class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MViewHolder> {
     private List <Item> items;
     public ItemAdapter(List<Item> items) {
@@ -28,7 +29,7 @@ class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.MViewHolder holder, int position) {
         Item i = items.get(position);
-        holder.textGrocery.setText(i.getName());
+        holder.textItem.setText(i.getName());
     }
 
     @Override
@@ -37,11 +38,11 @@ class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MViewHolder> {
     }
 
     public class MViewHolder extends RecyclerView.ViewHolder {
-        public TextView textGrocery;
+        public TextView textItem;
 
         public MViewHolder(@NonNull View view) {
             super(view);
-            textGrocery = view.findViewById(R.id.text_grocery);
+            textItem = view.findViewById(R.id.text_item);
         }
     }
 }

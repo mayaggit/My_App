@@ -13,10 +13,16 @@ import java.util.List;
 
 class GroceriesAdapter extends RecyclerView.Adapter<GroceriesAdapter.MyViewHolder> {
 
-    private List<NameIdPair> groceries;
+    public interface GroceryListener{
+        void onGroceryClicked(long id);
+    }
 
-    public GroceriesAdapter(List<NameIdPair> groceries) {
+    private List<NameIdPair> groceries;
+    private GroceryListener listener;
+
+    public GroceriesAdapter(List<NameIdPair> groceries, GroceryListener listener) {
         this.groceries = groceries;
+        this.listener = listener;
     }
 
     @NonNull
@@ -31,9 +37,16 @@ class GroceriesAdapter extends RecyclerView.Adapter<GroceriesAdapter.MyViewHolde
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GroceriesAdapter.MyViewHolder holder, int position) {
-        NameIdPair pair = groceries.get(position);
+    public void onBindViewHolder(@NonNull GroceriesAdapter.MyViewHolder holder, final int position) {
+        final NameIdPair pair = groceries.get(position);
         holder.textGrocery.setText(pair.getName());
+        holder.textGrocery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NameIdPair pair = groceries.get(position);
+                listener.onGroceryClicked(pair.getId());
+            }
+        });
     }
 
     @Override
