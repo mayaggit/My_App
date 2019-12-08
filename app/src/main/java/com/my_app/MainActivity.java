@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         listDao = new ListDAO();
         groceries = listDao.getGroceryNames();
 
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view_grocery);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);

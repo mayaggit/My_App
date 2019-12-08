@@ -25,7 +25,6 @@ public class ListDAO {
    //return the grocery list name
    public List<NameIdPair> getGroceryNames()
    {
-//הפעולה אמורה להחזיר סטרינג
        List<NameIdPair> list=new ArrayList<NameIdPair>(){{
            add(new NameIdPair("super1", 1));
            add(new NameIdPair("super2", 1));
@@ -37,8 +36,14 @@ public class ListDAO {
    }
 
    // print all items of a specific list
-   public List<Item> getItems (int id){
-       return  null;
+   public List<Item> getItems (){
+
+       List<Item> listi=new ArrayList<Item>(){{
+           add(new Item("item1"));
+           add(new Item("item2" ));
+           add(new Item("item3" ));
+       }};
+       return  listi;
        //ToDo
    }
 
