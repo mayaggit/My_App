@@ -12,11 +12,11 @@
 
         android:name=".MyApplication"
         >
-        <activity android:name=".ItemsActivity">
+        <activity android:name="activities.ItemsActivity">
             android:screenOrientation="portrait"
         </activity>
-        <activity android:name=".AddGroceryActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="activities.AddGroceryActivity" />
+        <activity android:name="activities.MainActivity">
             android:screenOrientation="portrait"
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

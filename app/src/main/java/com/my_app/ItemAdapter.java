@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.MViewHolder> {
     private List <Item> items;
     public ItemAdapter(List<Item> items) {
         this.items = items;

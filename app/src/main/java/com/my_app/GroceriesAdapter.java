@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 
-class GroceriesAdapter extends RecyclerView.Adapter<GroceriesAdapter.MyViewHolder> {
+public class GroceriesAdapter extends RecyclerView.Adapter<GroceriesAdapter.MyViewHolder> {
 
     public interface GroceryListener{
         void onGroceryClicked(long id);

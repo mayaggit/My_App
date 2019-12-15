@@ -1,4 +1,4 @@
-package com.my_app;
+package activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,6 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+
+
+import com.my_app.Item;
+import com.my_app.ItemAdapter;
+import com.my_app.ListDAO;
+import com.my_app.R;
 
 import java.util.List;
 

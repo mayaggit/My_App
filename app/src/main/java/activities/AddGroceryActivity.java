@@ -1,8 +1,10 @@
-package com.my_app;
+package activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.my_app.R;
 
 public class AddGroceryActivity extends AppCompatActivity {
 
